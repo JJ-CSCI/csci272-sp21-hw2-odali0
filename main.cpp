@@ -16,7 +16,64 @@ public:
     friend void operator<<(std::string&, Rot13&);
 };
 
+//Rot13::operator!(){
 
+//  if(text==0)
+//  return 0;
+//  else 
+// return 1;
+//}
+public:
+        Rot13(string text);
+        bool operator !();
+        void operator >>(string *s);
+        void operator <<(string *s);
+};
+
+Rot13::Rot13(string text) {
+        for(char c : text) {
+                        if((c<'a'||c>'z') && c!=32 && c!='\0')
+                                return ;
+                }
+                this->text = text;
+}
+
+bool Rot13::operator ! () {
+        if(this->text.size()==0)
+                        return true;
+                else
+                        return false;
+}
+
+void Rot13::operator >>(string *s) {
+                for(char c : this->text) {
+                        if(c==' '){
+                                s->push_back(' ');
+                                continue;
+                        }
+                        int index = static_cast<int >(c) - 97;
+                        int new_index = (index+13)%26;
+                        int ASCII = new_index + 97;
+
+                        char new_char = static_cast<char >(ASCII);
+                        
+                }
+}
+
+void Rot13::operator <<(string *s) {
+                for(char &c : *s) {
+                        if(c==' '){
+                                s->push_back(' ');
+                                continue;
+                        }
+                        int index = static_cast<int >(c) - 97;
+                        int new_index = (26+index-13)%26;
+                        int ASCII = new_index + 97;
+
+                        char new_char = static_cast<char >(ASCII);
+                        c = new_char;
+                }
+}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
