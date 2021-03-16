@@ -23,12 +23,7 @@ public:
 //  else 
 // return 1;
 //}
-public:
-        Rot13(string text);
-        bool operator !();
-        void operator >>(string *s);
-        void operator <<(string *s);
-};
+
 
 Rot13::Rot13(string text) {
         for(char c : text) {
@@ -45,7 +40,7 @@ bool Rot13::operator ! () {
                         return false;
 }
 
-void Rot13::operator >>(string *s) {
+void Rot13::operator >>(!cipher) {
                 for(char c : this->text) {
                         if(c==' '){
                                 s->push_back(' ');
@@ -60,8 +55,8 @@ void Rot13::operator >>(string *s) {
                 }
 }
 
-void Rot13::operator <<(string *s) {
-                for(char &c : *s) {
+void Rot13::operator <<(string !cipher) {
+                for(char &c : !cipher) {
                         if(c==' '){
                                 s->push_back(' ');
                                 continue;
